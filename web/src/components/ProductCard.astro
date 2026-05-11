@@ -1,0 +1,35 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  blurb: string;
+  image: string;
+  badge?: string;
+}
+const { href, title, blurb, image, badge } = Astro.props;
+---
+
+<article class="group bg-white border border-[var(--color-line)] rounded-xl overflow-hidden shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 transition-all duration-200 flex flex-col">
+  <a href={href} class="block aspect-[4/5] bg-[var(--color-cream-dark)] overflow-hidden">
+    <img
+      src={image}
+      alt={title}
+      loading="lazy"
+      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+    />
+  </a>
+  <div class="p-5 pb-6 flex flex-col gap-2 flex-1">
+    {badge && (
+      <span class="self-start inline-block text-[0.65rem] tracking-[0.18em] uppercase text-[var(--color-sage-700)] bg-[var(--color-sage-200)] px-2.5 py-0.5 rounded-full">
+        {badge}
+      </span>
+    )}
+    <h3 class="font-display text-xl text-[var(--color-sage-900)] tracking-wide m-0">
+      <a href={href} class="hover:underline">{title}</a>
+    </h3>
+    <p class="text-[var(--color-muted)] text-sm m-0">{blurb}</p>
+    <div class="mt-auto pt-3 flex justify-end">
+      <a href={href} class="btn btn-ghost !py-2 !px-4 !text-xs">View details</a>
+    </div>
+  </div>
+</article>

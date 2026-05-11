@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sage-50:  #f1f4eb;
+  --color-sage-100: #e0e6d2;
+  --color-sage-200: #c7d1b8;
+  --color-sage-300: #a8b894;
+  --color-sage-400: #8ea076;
+  --color-sage-500: #7a8f66;
+  --color-sage-600: #647754;
+  --color-sage-700: #5a6b4a;
+  --color-sage-800: #46553a;
+  --color-sage-900: #3d4a35;
+
+  --color-cream:      #f7f3ea;
+  --color-cream-dark: #efe8d7;
+
+  --color-earth:      #8a6a43;
+  --color-earth-dark: #5b4528;
+
+  --color-ink:   #2b2a26;
+  --color-muted: #6b6960;
+  --color-line:  #d9d1bc;
+
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --shadow-soft: 0 8px 24px rgba(61, 74, 53, 0.12);
+  --shadow-lift: 0 14px 32px rgba(61, 74, 53, 0.18);
+}
+
+@layer base {
+  html {
+    background: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body { margin: 0; }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    color: var(--color-sage-900);
+    letter-spacing: 0.01em;
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  img { max-width: 100%; display: block; }
+}
+
+@layer components {
+  .container-page {
+    max-width: 1180px;
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 26px;
+    border-radius: 999px;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease;
+    text-decoration: none;
+  }
+  .btn-primary {
+    background: var(--color-sage-700);
+    color: var(--color-cream);
+  }
+  .btn-primary:hover {
+    background: var(--color-sage-900);
+    transform: translateY(-1px);
+  }
+  .btn-ghost {
+    background: transparent;
+    border-color: var(--color-sage-700);
+    color: var(--color-sage-700);
+  }
+  .btn-ghost:hover {
+    background: var(--color-sage-700);
+    color: var(--color-cream);
+  }
+  .btn-whatsapp {
+    background: #25D366;
+    color: #fff;
+  }
+  .btn-whatsapp:hover {
+    background: #1eb858;
+    transform: translateY(-1px);
+  }
+
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-earth);
+  }
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — MAADHURAM</title>
+<meta name="description" content="The story behind MAADHURAM — a family-rooted herbal care brand blending tradition and honest practices." />
+<link rel="icon" href="assets/logo.jpg" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.jpg" alt="MAADHURAM tree logo" />
+      <span>
+        <span class="brand-name">MAADHURAM</span>
+        <span class="brand-tag">Meet Your Natural Side</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('navlinks').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="page-head">
+  <div class="container">
+    <div class="eyebrow">Our Story</div>
+    <h1>Rooted in nature. Built with care.</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="split">
+      <div>
+        <h2>Why MAADHURAM</h2>
+        <p>The word <em>Maadhuram</em> means <strong>sweetness</strong> — the small, honest kind found in things made with intention. We began with a simple question: why does personal care have to be complicated, or clinical, or loud?</p>
+        <p>Our answer was to go back to the herbs our grandmothers trusted — amla, hibiscus, neem, tulsi — and bring them into everyday products that actually work.</p>
+        <p>Every bottle and bar is made in small batches. Every ingredient is chosen because it belongs there, not to pad a label.</p>
+      </div>
+      <div>
+        <img src="assets/branding.png" alt="Natural elements of MAADHURAM branding" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values">
+  <div class="container">
+    <h2>What guides us</h2>
+    <div class="values-grid">
+      <div class="value-item">
+        <div class="icon">🌿</div>
+        <h3>Plant-First</h3>
+        <p>If it didn't grow, it doesn't go in. No hidden fillers or synthetic perfumes.</p>
+      </div>
+      <div class="value-item">
+        <div class="icon">🫂</div>
+        <h3>Made by Hand</h3>
+        <p>Mixed, bottled, and packed by a small team we know by name.</p>
+      </div>
+      <div class="value-item">
+        <div class="icon">📜</div>
+        <h3>Honest Labels</h3>
+        <p>What's in it, what's not, and why. Always clearly stated.</p>
+      </div>
+      <div class="value-item">
+        <div class="icon">♻️</div>
+        <h3>Mindful Packaging</h3>
+        <p>Recyclable and minimal — beautiful without the waste.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="split">
+      <div>
+        <img src="assets/bottles.jpg" alt="MAADHURAM herbal shampoo bottles" />
+      </div>
+      <div>
+        <div class="eyebrow" style="letter-spacing:0.3em; text-transform:uppercase; color:var(--earth); font-family:system-ui,sans-serif; font-size:0.78rem; margin-bottom:10px;">The Process</div>
+        <h2>From herb to home</h2>
+        <p>We source herbs from trusted growers, infuse them slowly, and blend them into formulations that are gentle enough for daily use. Each batch is tested for consistency, then hand-labeled before it leaves our workshop.</p>
+        <p>It's slower. That's the point.</p>
+        <a href="products.html" class="btn btn-primary">See the Range</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight" style="background:var(--cream-dark);">
+  <div class="container" style="text-align:center;">
+    <h2>Have a question?</h2>
+    <p class="muted" style="max-width:560px; margin:0 auto 24px;">Wholesale, gifting, or just curious about the ingredients — we're happy to chat.</p>
+    <a href="contact.html" class="btn btn-primary">Contact Us</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <img src="assets/logo.jpg" alt="MAADHURAM" />
+          <span class="brand-name">MAADHURAM</span>
+        </a>
+        <p>Handcrafted herbal care, rooted in tradition. Small batch. Honest formulas.</p>
+      </div>
+      <div class="footer">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer">
+        <h4>Reach Us</h4>
+        <ul>
+          <li>hello@maadhuram.in</li>
+          <li>+91 00000 00000</li>
+          <li>Instagram · Facebook</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© <span id="year"></span> MAADHURAM. All rights reserved.</div>
+      <div>Made with care in India.</div>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const soaps = [
+  { name: "Papaya",   image: "/products/soap-papaya.png",   note: "Brightening enzymes." },
+  { name: "Beetroot", image: "/products/soap-beetroot.png", note: "Natural radiance." },
+  { name: "Lavender", image: "/products/soap-lavender.png", note: "Calm, balancing." },
+  { name: "Ubtan",    image: "/products/soap-ubtan.png",    note: "Traditional glow." },
+];
+---
+
+<BaseLayout
+  title="About — MAADHURAM"
+  description="Our story: heirloom herbal recipes, made by hand, in small batches we know personally."
+  active="about"
+>
+  <section class="bg-[var(--color-cream-dark)] border-b border-[var(--color-line)] text-center py-16">
+    <div class="container-page">
+      <div class="eyebrow mb-2">Our Story</div>
+      <h1 class="text-4xl md:text-5xl">Made by hand. Rooted in tradition.</h1>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container-page grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-3xl mb-4">Where we began</h2>
+        <p class="text-[var(--color-muted)] mb-4">
+          MAADHURAM started in a home kitchen, with a single bottle of herbal shampoo cooked
+          down from reetha, shikakai, and amla — the way it has been done in Indian homes
+          for generations. Friends asked for some. Then their friends did. So we kept
+          cooking.
+        </p>
+        <p class="text-[var(--color-muted)] mb-4">
+          The brand name comes from the Sanskrit root for sweetness and care — what we try
+          to put into every batch we make.
+        </p>
+      </div>
+      <div>
+        <img
+          src="/story/shampoo-stack.png"
+          alt="MAADHURAM shampoo bottles styled with fresh herbs"
+          class="rounded-xl shadow-[var(--shadow-soft)]"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[var(--color-cream-dark)] py-16">
+    <div class="container-page">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <div class="eyebrow mb-2">Our Soaps</div>
+        <h2 class="text-3xl md:text-4xl mb-3">Four bars. Four hero ingredients.</h2>
+        <p class="text-[var(--color-muted)]">
+          Cold-pressed in small batches and cured for weeks. Pick by ingredient, or
+          mix and match — message us on WhatsApp with your picks.
+        </p>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {soaps.map((s) => (
+          <div class="bg-white border border-[var(--color-line)] rounded-xl overflow-hidden shadow-[var(--shadow-soft)] flex flex-col">
+            <div class="aspect-square bg-[var(--color-cream-dark)] overflow-hidden">
+              <img src={s.image} alt={`${s.name} soap`} loading="lazy" class="w-full h-full object-cover" />
+            </div>
+            <div class="p-4 pb-5 flex flex-col gap-1 flex-1">
+              <h3 class="font-display text-lg text-[var(--color-sage-900)] m-0">{s.name}</h3>
+              <p class="text-[var(--color-muted)] text-sm m-0">{s.note}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="/products/handmade-soaps/" class="btn btn-primary">See soap details</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[var(--color-sage-900)] text-[var(--color-cream)] py-16">
+    <div class="container-page max-w-3xl text-center">
+      <h2 class="text-3xl md:text-4xl text-[var(--color-cream)] mb-6">How we make things</h2>
+      <p class="text-[#d9d6c9] text-lg mb-4">
+        Every product is hand-mixed in small batches we can taste, smell, and check
+        ourselves. We don't pre-blend giant vats. We don't ship anything we wouldn't use
+        at home.
+      </p>
+      <p class="text-[#d9d6c9] text-lg">
+        Our ingredient list stays short on purpose — if we can't pronounce it, it doesn't
+        go in.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container-page max-w-2xl">
+      <h2 class="text-3xl mb-6">What you'll never find in our products</h2>
+      <ul class="grid gap-3 list-none p-0 m-0 text-[var(--color-ink)]">
+        <li class="flex items-start gap-3"><span class="text-[var(--color-sage-700)] mt-1">✕</span> SLS, SLES, and harsh sulfates</li>
+        <li class="flex items-start gap-3"><span class="text-[var(--color-sage-700)] mt-1">✕</span> Parabens and formaldehyde-based preservatives</li>
+        <li class="flex items-start gap-3"><span class="text-[var(--color-sage-700)] mt-1">✕</span> Synthetic fragrance and artificial colour</li>
+        <li class="flex items-start gap-3"><span class="text-[var(--color-sage-700)] mt-1">✕</span> Mineral oil and silicones</li>
+      </ul>
+
+      <div class="mt-10 flex flex-wrap gap-3">
+        <a href="/products/" class="btn btn-primary">Browse products</a>
+        <a href="/contact/" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

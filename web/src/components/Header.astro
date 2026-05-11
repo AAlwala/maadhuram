@@ -1,0 +1,73 @@
+---
+interface Props {
+  active?: "home" | "products" | "about" | "contact";
+}
+const { active = "home" } = Astro.props;
+
+const links: Array<{ key: NonNullable<Props["active"]>; href: string; label: string }> = [
+  { key: "home",     href: "/",          label: "Home" },
+  { key: "products", href: "/products/", label: "Products" },
+  { key: "about",    href: "/about/",    label: "About" },
+  { key: "contact",  href: "/contact/",  label: "Contact" },
+];
+---
+
+<header class="sticky top-0 z-50 bg-[var(--color-cream)]/85 backdrop-blur border-b border-[var(--color-line)]">
+  <nav class="container-page flex items-center justify-between gap-4 py-3">
+    <a href="/" class="flex items-center gap-3 text-[var(--color-sage-900)]">
+      <img
+        src="/logo.jpg"
+        alt="MAADHURAM tree logo"
+        class="w-11 h-11 rounded-full object-cover ring-1 ring-[var(--color-line)]"
+      />
+      <span class="leading-tight">
+        <span class="block font-display text-[1.25rem] font-semibold tracking-[0.14em] text-[var(--color-sage-900)]">
+          MAADHURAM
+        </span>
+        <span class="block text-[0.65rem] tracking-[0.22em] uppercase text-[var(--color-muted)] mt-px">
+          Meet Your Natural Side
+        </span>
+      </span>
+    </a>
+
+    <button
+      id="navToggle"
+      aria-label="Open menu"
+      class="md:hidden border border-[var(--color-line)] rounded px-2.5 py-2 leading-none"
+    >
+      <span class="block w-5 h-0.5 bg-[var(--color-ink)] mb-1"></span>
+      <span class="block w-5 h-0.5 bg-[var(--color-ink)] mb-1"></span>
+      <span class="block w-5 h-0.5 bg-[var(--color-ink)]"></span>
+    </button>
+
+    <ul
+      id="navLinks"
+      class="hidden md:flex absolute md:static top-full left-0 right-0 md:left-auto md:right-auto bg-[var(--color-cream)] md:bg-transparent border-b md:border-none border-[var(--color-line)] flex-col md:flex-row gap-2 md:gap-7 list-none m-0 px-6 md:px-0 py-4 md:py-0"
+    >
+      {links.map((l) => (
+        <li>
+          <a
+            href={l.href}
+            class:list={[
+              "block py-1.5 text-sm tracking-[0.08em] uppercase font-sans relative",
+              active === l.key
+                ? "text-[var(--color-sage-900)] after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-0.5 after:bg-[var(--color-sage-500)]"
+                : "text-[var(--color-ink)] hover:text-[var(--color-sage-900)]",
+            ]}
+          >
+            {l.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById("navToggle");
+  const links = document.getElementById("navLinks");
+  btn?.addEventListener("click", () => {
+    links?.classList.toggle("hidden");
+    links?.classList.toggle("flex");
+  });
+</script>

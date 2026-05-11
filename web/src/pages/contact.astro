@@ -1,0 +1,111 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Contact — MAADHURAM"
+  description="Reach MAADHURAM over WhatsApp, email, or Instagram. We answer personally, usually within a day."
+  active="contact"
+>
+  <section class="bg-[var(--color-cream-dark)] border-b border-[var(--color-line)] text-center py-16">
+    <div class="container-page">
+      <div class="eyebrow mb-2">Get in touch</div>
+      <h1 class="text-4xl md:text-5xl">We answer personally.</h1>
+      <p class="max-w-xl mx-auto mt-3 text-[var(--color-muted)]">
+        Order questions, wholesale enquiries, or just a hello — pick the channel you like.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container-page grid lg:grid-cols-[1.2fr_1fr] gap-12 items-start">
+      <div>
+        <h2 class="text-2xl mb-4">Send us a note</h2>
+        <p class="text-[var(--color-muted)] mb-6">
+          Fill this in and your default email client will open with the message ready to send.
+        </p>
+
+        <form
+          action="mailto:maadhuram.handmade@gmail.com"
+          method="post"
+          enctype="text/plain"
+          class="grid gap-4 max-w-lg"
+        >
+          <div>
+            <label class="block text-xs uppercase tracking-[0.12em] text-[var(--color-sage-900)] mb-1.5" for="name">Your name</label>
+            <input
+              id="name"
+              name="Name"
+              type="text"
+              required
+              class="w-full px-3.5 py-3 border border-[var(--color-line)] rounded-lg bg-white focus:outline-2 focus:outline-[var(--color-sage-500)]"
+            />
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-[0.12em] text-[var(--color-sage-900)] mb-1.5" for="email">Email</label>
+            <input
+              id="email"
+              name="Email"
+              type="email"
+              required
+              class="w-full px-3.5 py-3 border border-[var(--color-line)] rounded-lg bg-white focus:outline-2 focus:outline-[var(--color-sage-500)]"
+            />
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-[0.12em] text-[var(--color-sage-900)] mb-1.5" for="message">Message</label>
+            <textarea
+              id="message"
+              name="Message"
+              rows="5"
+              required
+              class="w-full px-3.5 py-3 border border-[var(--color-line)] rounded-lg bg-white min-h-36 focus:outline-2 focus:outline-[var(--color-sage-500)] resize-y"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary justify-self-start">Send message</button>
+        </form>
+      </div>
+
+      <aside class="bg-[var(--color-cream-dark)] border border-[var(--color-line)] rounded-2xl p-7">
+        <h2 class="text-xl mb-5">Other ways to reach us</h2>
+
+        <dl class="grid gap-5">
+          <div>
+            <dt class="text-xs uppercase tracking-[0.16em] text-[var(--color-muted)]">WhatsApp</dt>
+            <dd class="mt-0.5">
+              <a class="text-[var(--color-sage-900)] hover:underline" href="https://wa.me/919652924824" target="_blank" rel="noopener">
+                +91 96529 24824
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt class="text-xs uppercase tracking-[0.16em] text-[var(--color-muted)]">Email</dt>
+            <dd class="mt-0.5">
+              <a class="text-[var(--color-sage-900)] hover:underline" href="mailto:maadhuram.handmade@gmail.com">maadhuram.handmade@gmail.com</a>
+            </dd>
+          </div>
+          <div>
+            <dt class="text-xs uppercase tracking-[0.16em] text-[var(--color-muted)]">Instagram</dt>
+            <dd class="mt-0.5">
+              <a class="text-[var(--color-sage-900)] hover:underline" href="https://www.instagram.com/maadhuram.handmade/" target="_blank" rel="noopener">
+                @maadhuram.handmade
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt class="text-xs uppercase tracking-[0.16em] text-[var(--color-muted)]">Made in</dt>
+            <dd class="mt-0.5 text-[var(--color-ink)]">India · Ships pan-India</dd>
+          </div>
+        </dl>
+
+        <a
+          href="https://wa.me/919652924824?text=Hi%20MAADHURAM%2C%20I%20have%20a%20question."
+          target="_blank"
+          rel="noopener"
+          class="btn btn-whatsapp mt-7 w-full justify-center"
+        >
+          Open WhatsApp
+        </a>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

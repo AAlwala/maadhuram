@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProductCard from "../../components/ProductCard.astro";
+
+const products = (await getCollection("products")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<BaseLayout
+  title="Products — MAADHURAM"
+  description="Herbal shampoo and four handmade soap varieties — small-batch, plant-based, made by hand."
+  active="products"
+>
+  <section class="bg-[var(--color-cream-dark)] border-b border-[var(--color-line)] text-center py-16">
+    <div class="container-page">
+      <div class="eyebrow mb-2">Our Range</div>
+      <h1 class="text-4xl md:text-5xl">Honest, herbal essentials.</h1>
+      <p class="max-w-xl mx-auto mt-3 text-[var(--color-muted)]">
+        A small, considered range — each one made by hand, with ingredients you'll recognise.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container-page grid gap-7 sm:grid-cols-2 max-w-3xl mx-auto">
+      {products.map((p) => (
+        <ProductCard
+          href={`/products/${p.id}/`}
+          title={p.data.title}
+          blurb={p.data.tagline}
+          image={p.data.image}
+          badge={p.data.badge}
+        />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

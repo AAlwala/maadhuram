@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact — MAADHURAM</title>
+<meta name="description" content="Get in touch with MAADHURAM — orders, wholesale, gifting, and general enquiries." />
+<link rel="icon" href="assets/logo.jpg" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.jpg" alt="MAADHURAM tree logo" />
+      <span>
+        <span class="brand-name">MAADHURAM</span>
+        <span class="brand-tag">Meet Your Natural Side</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('navlinks').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="page-head">
+  <div class="container">
+    <div class="eyebrow">Say Hello</div>
+    <h1>Let's talk.</h1>
+    <p class="muted" style="max-width:560px; margin:10px auto 0;">For orders, wholesale queries, gifting, or anything else — we usually reply within one business day.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <form class="form" onsubmit="handleSubmit(event)">
+        <div>
+          <label for="name">Your Name</label>
+          <input id="name" name="name" type="text" required placeholder="Priya Sharma" />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required placeholder="you@example.com" />
+        </div>
+        <div>
+          <label for="phone">Phone (optional)</label>
+          <input id="phone" name="phone" type="tel" placeholder="+91 ..." />
+        </div>
+        <div>
+          <label for="subject">Subject</label>
+          <input id="subject" name="subject" type="text" placeholder="e.g. Wholesale enquiry" />
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required placeholder="Tell us a little about what you need..."></textarea>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </div>
+        <p id="form-status" class="muted" style="min-height:1.2em;"></p>
+      </form>
+
+      <aside class="contact-info">
+        <h2 style="margin-bottom:4px;">Reach us directly</h2>
+        <p class="muted">We're a small team. You'll get a real reply from a real person.</p>
+        <dl>
+          <dt>Email</dt>
+          <dd><a href="mailto:hello@maadhuram.in">hello@maadhuram.in</a></dd>
+
+          <dt>Phone / WhatsApp</dt>
+          <dd>+91 00000 00000</dd>
+
+          <dt>Based in</dt>
+          <dd>India</dd>
+
+          <dt>Follow</dt>
+          <dd>
+            <a href="#">Instagram</a> &middot;
+            <a href="#">Facebook</a> &middot;
+            <a href="#">YouTube</a>
+          </dd>
+
+          <dt>Hours</dt>
+          <dd>Mon – Sat · 10:00 AM – 6:00 PM IST</dd>
+        </dl>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <img src="assets/logo.jpg" alt="MAADHURAM" />
+          <span class="brand-name">MAADHURAM</span>
+        </a>
+        <p>Handcrafted herbal care, rooted in tradition. Small batch. Honest formulas.</p>
+      </div>
+      <div class="footer">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer">
+        <h4>Reach Us</h4>
+        <ul>
+          <li>hello@maadhuram.in</li>
+          <li>+91 00000 00000</li>
+          <li>Instagram · Facebook</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© <span id="year"></span> MAADHURAM. All rights reserved.</div>
+      <div>Made with care in India.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  function handleSubmit(e) {
+    e.preventDefault();
+    const status = document.getElementById('form-status');
+    status.textContent = "Thanks — your message is ready. (Connect this form to your email service or a form handler like Formspree/Netlify Forms to receive submissions.)";
+    status.style.color = "var(--sage-700)";
+  }
+</script>
+</body>
+</html>

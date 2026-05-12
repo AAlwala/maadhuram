@@ -34,7 +34,8 @@
       "Bash(curl -sf http://localhost:4321/)",
       "Bash(curl -sf http://localhost:4321/products/herbal-shampoo/)",
       "Bash(pkill -f \"astro dev\")",
-      "Bash(pkill -f \"astro/dist/cli/index.js\")"
+      "Bash(pkill -f \"astro/dist/cli/index.js\")",
+      "WebFetch(domain:maadhuram-handmade.netlify.app)"
     ]
   }
 }

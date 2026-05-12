@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProductCard from "../components/ProductCard.astro";
+import ChatWidget from "../components/ChatWidget.astro";
 
 const products = (await getCollection("products")).sort(
   (a, b) => a.data.order - b.data.order,
@@ -23,19 +24,15 @@ const soaps = [
 ---
 
 <BaseLayout title="MAADHURAM — Meet Your Natural Side" active="home">
-  <section
-    class="relative py-24 md:py-32"
-    style="background: linear-gradient(180deg, rgba(247,243,234,0.65), rgba(247,243,234,0.95)), url('/branding.png') center/cover no-repeat;"
-  >
+  <section class="relative py-24 md:py-32 bg-[var(--color-sage-900)]">
     <div class="container-page max-w-3xl text-center">
-      <div class="eyebrow mb-3">Pure · Herbal · Handcrafted</div>
-      <h1 class="text-[clamp(2rem,4.5vw,3.6rem)] mb-3">Nature, bottled with care.</h1>
-      <p class="text-lg md:text-xl italic text-[var(--color-sage-700)] mb-7">
+      <h1 class="text-[clamp(2rem,4.5vw,3.6rem)] mb-3 text-[var(--color-cream)]">Nature, bottled with care.</h1>
+      <p class="text-lg md:text-xl italic text-[#d9d6c9] mb-7">
         Traditional recipes. Clean ingredients. A gentler way to care for your body.
       </p>
       <div class="flex gap-3 justify-center flex-wrap">
-        <a class="btn btn-primary" href="/products/">Shop Products</a>
-        <a class="btn btn-ghost" href="/about/">Our Story</a>
+        <a class="btn bg-[var(--color-cream)] text-[var(--color-sage-900)] hover:bg-white hover:-translate-y-px" href="/products/">Shop Products</a>
+        <a class="btn border-[var(--color-cream)] text-[var(--color-cream)] hover:bg-[var(--color-cream)] hover:text-[var(--color-sage-900)]" href="/about/">Our Story</a>
       </div>
     </div>
   </section>
@@ -157,4 +154,6 @@ const soaps = [
       </div>
     </div>
   </section>
+
+  <ChatWidget />
 </BaseLayout>

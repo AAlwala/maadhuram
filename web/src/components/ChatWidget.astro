@@ -1,0 +1,189 @@
+---
+const topics = [
+  "Place an order",
+  "Ask a question",
+  "Wholesale / bulk enquiry",
+  "Gift / custom bundle",
+  "Something else",
+];
+---
+
+<div id="chatWidget" class="fixed bottom-5 right-5 z-40 font-sans">
+  <button
+    id="chatToggle"
+    aria-label="Open chat"
+    aria-expanded="false"
+    class="group relative flex items-center gap-2 bg-[var(--color-cream)] hover:bg-white text-[var(--color-sage-900)] pl-4 pr-5 py-3 rounded-full shadow-lg shadow-black/25 border border-[var(--color-line)] transition-transform hover:-translate-y-0.5"
+  >
+    <span class="text-lg leading-none" aria-hidden="true">🌿</span>
+    <span class="text-sm font-medium">Chat with us</span>
+    <span class="absolute -top-0.5 -right-0.5 flex h-3 w-3" aria-hidden="true">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-sage-500)] opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-3 w-3 bg-[var(--color-sage-600)] ring-2 ring-[var(--color-cream)]"></span>
+    </span>
+  </button>
+
+  <div
+    id="chatPanel"
+    class="hidden absolute bottom-16 right-0 w-[28rem] max-w-[calc(100vw-2.5rem)] bg-white rounded-2xl shadow-2xl border border-[var(--color-line)] overflow-hidden"
+    role="dialog"
+    aria-label="Chat with MAADHURAM"
+  >
+    <header class="bg-[var(--color-sage-900)] text-[var(--color-cream)] px-6 py-5 flex items-start justify-between gap-3">
+      <div>
+        <div class="font-display text-xl leading-tight">Hi there 🌿</div>
+        <div class="text-sm text-[#d9d6c9] mt-1">Tell us a bit and we'll get back to you over email.</div>
+      </div>
+      <button
+        id="chatClose"
+        aria-label="Close chat"
+        class="text-[var(--color-cream)]/70 hover:text-white text-xl leading-none"
+      >×</button>
+    </header>
+
+    <form
+      id="chatForm"
+      name="chat-enquiry"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      class="p-6 grid gap-5"
+    >
+      <input type="hidden" name="form-name" value="chat-enquiry" />
+      <p class="hidden">
+        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+      </p>
+
+      <div>
+        <label for="chat-name" class="block text-xs uppercase tracking-[0.12em] text-[var(--color-sage-900)] mb-1.5">
+          Your name
+        </label>
+        <input
+          id="chat-name"
+          name="name"
+          type="text"
+          required
+          class="w-full px-3.5 py-3 text-[15px] border border-[var(--color-line)] rounded-lg focus:outline-2 focus:outline-[var(--color-sage-500)]"
+        />
+      </div>
+
+      <div>
+        <label for="chat-contact" class="block text-xs uppercase tracking-[0.12em] text-[var(--color-sage-900)] mb-1.5">
+          Email or phone
+        </label>
+        <input
+          id="chat-contact"
+          name="contact"
+          type="text"
+          required
+          placeholder="So we can reply to you"
+          class="w-full px-3.5 py-3 text-[15px] border border-[var(--color-line)] rounded-lg focus:outline-2 focus:outline-[var(--color-sage-500)]"
+        />
+      </div>
+
+      <div>
+        <label for="chat-topic" class="block text-xs uppercase tracking-[0.12em] text-[var(--color-sage-900)] mb-1.5">
+          What can we help with?
+        </label>
+        <select
+          id="chat-topic"
+          name="topic"
+          required
+          class="w-full px-3.5 py-3 text-[15px] border border-[var(--color-line)] rounded-lg bg-white focus:outline-2 focus:outline-[var(--color-sage-500)]"
+        >
+          <option value="">Pick one…</option>
+          {topics.map((t) => <option value={t}>{t}</option>)}
+        </select>
+      </div>
+
+      <div>
+        <label for="chat-message" class="block text-xs uppercase tracking-[0.12em] text-[var(--color-sage-900)] mb-1.5">
+          Your message
+        </label>
+        <textarea
+          id="chat-message"
+          name="message"
+          rows="4"
+          required
+          placeholder="Tell us a bit more…"
+          class="w-full px-3.5 py-3 text-[15px] border border-[var(--color-line)] rounded-lg focus:outline-2 focus:outline-[var(--color-sage-500)] resize-y min-h-[6rem]"
+        ></textarea>
+      </div>
+
+      <button
+        type="submit"
+        id="chatSubmit"
+        class="btn btn-primary justify-center w-full !py-3"
+      >
+        Send message
+      </button>
+
+      <p class="text-[11px] text-[var(--color-muted)] text-center -mt-2">
+        Replies go to maadhuram.handmade@gmail.com
+      </p>
+    </form>
+
+    <div id="chatSuccess" class="hidden p-7 text-center">
+      <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-[var(--color-sage-200)] grid place-items-center text-2xl">🌿</div>
+      <h3 class="font-display text-xl text-[var(--color-sage-900)] mb-1">Thanks — message received.</h3>
+      <p class="text-sm text-[var(--color-muted)]">We'll get back to you within a day, usually sooner.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const toggle = document.getElementById("chatToggle");
+  const panel  = document.getElementById("chatPanel");
+  const closeBtn = document.getElementById("chatClose");
+  const form = document.getElementById("chatForm") as HTMLFormElement | null;
+  const successEl = document.getElementById("chatSuccess");
+  const submitBtn = document.getElementById("chatSubmit") as HTMLButtonElement | null;
+
+  function setOpen(open: boolean) {
+    if (!panel) return;
+    panel.classList.toggle("hidden", !open);
+    toggle?.setAttribute("aria-expanded", String(open));
+  }
+
+  toggle?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    setOpen(panel?.classList.contains("hidden") ?? false);
+  });
+  closeBtn?.addEventListener("click", () => setOpen(false));
+  document.addEventListener("click", (e) => {
+    if (!panel || panel.classList.contains("hidden")) return;
+    const target = e.target as Node;
+    if (!panel.contains(target) && !toggle?.contains(target)) setOpen(false);
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setOpen(false);
+  });
+
+  // AJAX submit so the popup stays open and shows a success state
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!form || !submitBtn) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending…";
+
+    const data = new FormData(form);
+    const body = new URLSearchParams();
+    for (const [k, v] of data.entries()) body.append(k, v.toString());
+
+    try {
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString(),
+      });
+      if (!res.ok) throw new Error("Submission failed");
+      form.classList.add("hidden");
+      successEl?.classList.remove("hidden");
+    } catch {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Send message";
+      alert("Sorry, something went wrong. Please WhatsApp us at +91 96529 24824 instead.");
+    }
+  });
+</script>

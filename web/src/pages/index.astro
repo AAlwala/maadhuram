@@ -20,6 +20,7 @@ const soaps = [
   { name: "Beetroot", image: "/products/soap-beetroot.png", note: "Natural radiance." },
   { name: "Lavender", image: "/products/soap-lavender.png", note: "Calm, balancing." },
   { name: "Ubtan",    image: "/products/soap-ubtan.png",    note: "Traditional glow." },
+  { name: "Goat Milk", image: "/products/soap-goatmilk.png", note: "Rich, moisturising." },
 ];
 ---
 
@@ -65,13 +66,13 @@ const soaps = [
     <div class="container-page">
       <div class="text-center max-w-2xl mx-auto mb-10">
         <div class="eyebrow mb-2">Soap Varieties</div>
-        <h2 class="text-3xl md:text-4xl mb-3">Four bars. Four hero ingredients.</h2>
+        <h2 class="text-3xl md:text-4xl mb-3">Five bars. Five hero ingredients.</h2>
         <p class="text-[var(--color-muted)]">
           Pick one, or mix and match — let us know your favourites when you message us.
         </p>
       </div>
 
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
         {soaps.map((s) => (
           <a
             href="/products/handmade-soaps/"

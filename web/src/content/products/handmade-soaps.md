@@ -1,6 +1,6 @@
 ---
 title: Handmade Soaps
-tagline: Cold-pressed bars, in four hand-blended varieties.
+tagline: Cold-pressed bars, in five hand-blended varieties.
 blurb: Cold-pressed in small batches with cold-pressed oils, fresh botanicals, and skin-loving ingredients. Each bar is cured for weeks to give a creamy, grounding lather that's gentle enough for daily use. Choose the one that suits your skin.
 size: "per bar"
 badge: New
@@ -29,6 +29,9 @@ variants:
   - name: Ubtan
     image: /products/soap-ubtan.png
     note: A turmeric and gram-flour blend, the traditional Indian glow ritual.
+  - name: Goat Milk
+    image: /products/soap-goatmilk.png
+    note: Rich in natural lactic acid — softens, hydrates and is gentle on sensitive skin.
 order: 2
 ---
 
